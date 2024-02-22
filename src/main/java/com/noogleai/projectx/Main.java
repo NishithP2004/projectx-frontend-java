@@ -160,7 +160,7 @@ public class Main extends javax.swing.JFrame {
             userName = txtName.getText().trim();
             OAuthToken = token.getText().trim();
             courseID = course_id.getText().trim();
-            s = IO.socket("http://localhost:3001");
+            s = IO.socket("https://projectx.nishithp.dev");
             s.on(Socket.EVENT_CONNECT, new Emitter.Listener() {
                 @Override 
                 public void call(Object... arg0) {
@@ -180,7 +180,7 @@ public class Main extends javax.swing.JFrame {
             s.on("reply-java", new Emitter.Listener() {
                 @Override
                 public void call(Object... arg0) {
-                    txtMS.append("AI : " + arg0[0].toString().replace("<p>", "").replace("</p>", "") + "\n");
+                    txtMS.append("AI : " + arg0[0].toString() + "\n");
                 }
             });
             s.open();
